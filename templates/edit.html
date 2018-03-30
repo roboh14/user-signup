@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style type = "text/css">
+.button {
+    display: inline-block;
+    float: left;
+}
+</style>
+
+
+<form action="/welcome" method="post">
+<table>
+    <tr>
+        <td>Username</td>
+        <td><input type="text" name="user_name" value = '{{user_name}}'/></td>
+        <td>{% if user_error %}<span class='error'>{{ user_error }}</span{% endif %}</td>
+    </tr>
+    <tr>
+       <td>Password</td>
+       <td><input type="password" name="pass_word" value = '{{pass_word}}'/></td>
+       <td>{% if pw_error %}<span class='error'>{{ pw_error }}</span>{% endif %}</td>
+    </tr>
+    <tr>
+        <td>Verify Password</td>
+        <td><input type="password" name="verify_word" value = '{{verify_word}}'/></td>
+        <td>{% if ver_error %}<span class='error'>{{ ver_error }}</span>{% endif %}</td>
+    </tr>
+    <tr>
+        <td>Email (Optional)</td>
+        <td><input type="text" name="e_mail" value = '{{e_mail}}'/></td>
+        <td>{% if em_error %}<span class='error'>{{ em_error }}</span>{% endif %}</td>
+    </tr>
+</table>
+    <label>
+        <p class= 'button'><input type="submit" value="Submit"/></p>
+    </label>
+</form>
+
+
+{% endblock %}
+
+
+
